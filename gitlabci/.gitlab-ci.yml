@@ -1,0 +1,4 @@
+build-job:
+  stage: Build Server Env
+  script:
+    - cd devops-test/ansible && ansible-playbook playbook-deploy-webserver.yml

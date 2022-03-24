@@ -1,0 +1,35 @@
+---
+- name: UPDATE 
+  apt: update_cache=yes
+
+- name: INSTALL NGINX
+  apt:
+    name: nginx
+    state: present
+    update_cache: yes
+  become: true
+
+- name: COPY INFO PHP
+  template: 
+    src: index.php.j2
+    dest: /var/www/html/index.php
+
+- name: COPY NGINX CONF
+  template: 
+    src: default.j2
+    dest: /etc/nginx/sites-enabled/default
+
+#- name: COPY TEST DATABASE
+#  template: 
+#    src: testdatabase.php.j2
+#    dest: /var/www/html/testdatabase.php
+
+- name: START NGINX
+  service: 
+    name: nginx 
+    state: started
+
+- name: RESTART NGINX
+  service: 
+    name: nginx 
+    state: restarted

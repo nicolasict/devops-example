@@ -1,0 +1,9 @@
+---
+- hosts: 192.168.30.97
+  become: yes
+  become_method: sudo
+  vars_files:
+    - env/varnish-docker.yml
+  roles:
+    - "{{ docker_roles_install_engine }}"
+    - "{{ docker_roles_compose }}"

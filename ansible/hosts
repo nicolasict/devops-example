@@ -1,0 +1,5 @@
+[docker-lab]
+192.168.30.95 ansible_user=ubuntu-dev
+
+[docker-lab:vars]
+ansible_python_interpreter=/usr/bin/python3

@@ -1,0 +1,6 @@
+project_name: "Testing"
+php_version: "php7.4" # Gunakan value php7.4 untuk php 7.4 dan value php8.0 untuk php 8.0
+webserver: "nginx"
+webserver_port: "80"
+webserver_workdir: "/var/www/html/"
+webserver_domain: "localhost"

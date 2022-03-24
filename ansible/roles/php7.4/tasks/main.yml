@@ -1,0 +1,27 @@
+---
+- name: UPDATE 
+  apt: update_cache=yes
+
+- name: TAMBAH REPO
+  apt_repository:
+    validate_certs: no
+    repo: 'ppa:ondrej/php'
+    state: present
+  become: true
+
+- name: INSTALL PHP 7.4
+  apt:
+    name: ['php7.4-fpm', 'php7.4', 'php7.4-redis', 'php7.4-pgsql', 'php7.4-mysql']
+    state: present
+    update_cache: yes
+  become: true
+  
+- name: START PHP 7.4-FPM
+  service: 
+    name: php7.4-fpm
+    state: started
+
+- name: RESTART PHP 7.4-FPM
+  service: 
+    name: php7.4-fpm
+    state: restarted

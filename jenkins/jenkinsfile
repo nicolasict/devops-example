@@ -1,0 +1,10 @@
+pipeline {
+    agent any 
+    stages {
+        stage('Build Server Env') { 
+            steps {
+                sh 'cd devops-test/ansible && ansible-playbook playbook-deploy-webserver.yml'
+            }
+        }
+    }
+}
